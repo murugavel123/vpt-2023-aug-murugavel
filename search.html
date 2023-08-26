@@ -15,7 +15,7 @@
     <script>
     function getBooks() {
       document.getElementById('output').innerHTML = "";
-      fetch("http://openlibrary.org/search.json?q=" + document.getElementById("input").value)
+      fetch("https://openlibrary.org/search.json?q=" + document.getElementById("input").value)
         .then(response => response.json())
         .then(data => {
           if (data.docs && data.docs.length > 0) {
