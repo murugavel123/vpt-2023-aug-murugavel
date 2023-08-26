@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hero.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<title>BookLibray</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script>
+    function getBooks() {
+      document.getElementById('output').innerHTML = "";
+      fetch("http://openlibrary.org/search.json?q=" + document.getElementById("input").value)
+        .then(response => response.json())
+        .then(data => {
+          if (data.docs && data.docs.length > 0) {
+            for (var i = 0; i < Math.min(10, data.docs.length); i++) {
+              var book = data.docs[i];
+              var title = book.title ? book.title : "Title not available";
+              var author = book.author_name ? book.author_name[0] : "Author not available";
+              var isbn = book.isbn && book.isbn[0] ? book.isbn[0] : "";
+              var imageUrl = isbn ? "http://covers.openlibrary.org/b/isbn/" + isbn + "-M.jpg" : "ImageNotFound.jpeg";
+              document.getElementById("output").innerHTML +="<div class='outbook'>" +(imageUrl ? "<div class='inoutputimg'><img src='" + imageUrl + "'></div>" : "") +"<div class='inoutputtxt'>" +"<h1>" + title + "</h1>" +"<h2>" + author +"</h2>"+"<h3>"+"Published Year: "+book.publish_year[0]+"</h3>"+"</div></div>";
+              
+            }
+          } else {
+            document.getElementById("output").innerHTML = "No results found.";
+          }
+        })
+        .catch(error => {
+          document.getElementById("output").innerHTML = "An error occurred while fetching data.";
+        });
+    }
+  </script>
+    <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo">
+                <a href="#" class="nav_color">BookLibrary</a>
+            </div>
+            <ul>
+                <li><a href="index.html" class="nav_hover">HOME</a></li>
+                <li><a href="About.html" class="nav_hover">ABOUT</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="box">
+        <input type="text" name="input" id="input" placeholder="Your gateway to exploring a world of e-books......">
+        <button onclick="getBooks()"><i class="fa fa-search"></i></button>
+    </div>
+    <div id="result"></div>
+    <div id="output"></div>     
+</body>
+</html>
