@@ -22,7 +22,7 @@
         fetch("https://openlibrary.org/search.json?q=" + document.getElementById("input").value)
             .then(response => response.json())
             .then(data => {
-                remove();
+                
                 if (data.docs && data.docs.length > 0) {
                     document.getElementById("output").innerHTML += "<h1 class='result1'>" + "Showing results for " + document.getElementById("input").value + "</h1>";
                     for (var i = 0; i < Math.min(10, data.docs.length); i++) {
