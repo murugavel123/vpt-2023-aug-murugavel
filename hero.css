@@ -93,5 +93,13 @@
         background-position: 500% 0;
     }
 }
-
+button{
+    box-shadow: 0 0 5px #7d2ae8,0 0 25px #7d2ae8;
+    color: #fff;
+    background: #7d2ae8;
+    border-radius: 3px;
+}
+button:hover{
+    box-shadow: 0 0 5px #7d2ae8,0 0 25px #7d2ae8,0 0 50px #7d2ae8,0 0 200px #7d2ae8;
+}
 
