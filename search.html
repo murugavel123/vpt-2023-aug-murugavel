@@ -13,16 +13,16 @@
 </head>
 <body>
   <script>
-   const loaderElement = document.querySelector(".show");
+   
+    function getBooks() {
+        
+        const loaderElement = document.querySelector(".loader");
     function show(){
         loaderElement.style.display = "block";
     }
     function remove(){
         loaderElement.style.display = "none"; 
     }
-    function getBooks() {
-        
-        
         document.getElementById('output').innerHTML = "";
         show();
         fetch("https://openlibrary.org/search.json?q=" + document.getElementById("input").value)
@@ -98,7 +98,7 @@
     </div>
     <div id="result"></div>
     <div class="loader show">
-        <h1 style="padding-top: 30px; text-align: center; color: #fff; display:none;">Loading......</h1>
+        <h1 style="padding-top: 30px; text-align: center; color: #fff;">Loading......</h1>
     </div>
     
     <div id="output"></div>
