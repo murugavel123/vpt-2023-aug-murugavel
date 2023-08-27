@@ -23,15 +23,7 @@
     z-index: 2;
     
 }
-.box:hover input{
-    width: 450px;
-    cursor: pointer;
-}
 
-.box:hover{
-    width: 450px;
-    cursor: pointer;
-}
 
 .box:hover .text{
     display: none;
@@ -40,7 +32,7 @@
     background: transparent;
     border: none;
     outline: none;
-    width: 0;
+    width: 475px;
     font-weight: 500;
     font-size: 16px;
     transition: 0.8s;
