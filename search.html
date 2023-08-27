@@ -19,7 +19,7 @@
         .then(response => response.json())
         .then(data => {
           if (data.docs && data.docs.length > 0) {
-                          document.getElementById("output").innerHTML +="<h1 class='result'>"+"Showing results for "+document.getElementById("input").value+"</h1>";
+                          document.getElementById("output").innerHTML +="<h1 class='result1'>"+"Showing results for "+document.getElementById("input").value+"</h1>";
 
             for (var i = 0; i < Math.min(10, data.docs.length); i++) {
               var book = data.docs[i];
