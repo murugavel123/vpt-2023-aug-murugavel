@@ -22,8 +22,9 @@
     }
     function getBooks() {
         
-        show();
+        
         document.getElementById('output').innerHTML = "";
+        show();
         fetch("https://openlibrary.org/search.json?q=" + document.getElementById("input").value)
             .then(response => response.json())
             .then(data => {
@@ -97,7 +98,7 @@
     </div>
     <div id="result"></div>
     <div class="loader show">
-        <h1 style="padding-top: 30px; text-align: center; color: #fff;">Loading......</h1>
+        <h1 style="padding-top: 30px; text-align: center; color: #fff; display:none;">Loading......</h1>
     </div>
     
     <div id="output"></div>
