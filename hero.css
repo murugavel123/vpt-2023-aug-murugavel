@@ -37,6 +37,7 @@
 }
 .box i .fas{
     color: blue;
+    margin-left : 0;
 }
 .hero-search{
     display: flex;
