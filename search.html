@@ -13,11 +13,21 @@
 </head>
 <body>
   <script>
+   
     function getBooks() {
+        const loaderElement = document.querySelector(".show");
+    function show(){
+        loaderElement.style.display = "block";
+    }
+    function remove(){
+        loaderElement.style.display = "none"; 
+    }
+        show();
         document.getElementById('output').innerHTML = "";
         fetch("https://openlibrary.org/search.json?q=" + document.getElementById("input").value)
             .then(response => response.json())
             .then(data => {
+                remove();
                 if (data.docs && data.docs.length > 0) {
                     document.getElementById("output").innerHTML += "<h1 class='result1'>" + "Showing results for " + document.getElementById("input").value + "</h1>";
                     for (var i = 0; i < Math.min(10, data.docs.length); i++) {
@@ -86,6 +96,10 @@
         <button onclick="getBooks()"><i class="fa fa-search"></i></button>
     </div>
     <div id="result"></div>
+    <div class="loader show">
+        <h1 style="padding-top: 30px; text-align: center; color: #fff;">Loading......</h1>
+    </div>
+    
     <div id="output"></div>
 </body>
 </html>
