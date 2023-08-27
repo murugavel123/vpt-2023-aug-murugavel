@@ -13,15 +13,15 @@
 </head>
 <body>
   <script>
-   
-    function getBooks() {
-        const loaderElement = document.querySelector(".show");
+   const loaderElement = document.querySelector(".show");
     function show(){
         loaderElement.style.display = "block";
     }
     function remove(){
         loaderElement.style.display = "none"; 
     }
+    function getBooks() {
+        
         show();
         document.getElementById('output').innerHTML = "";
         fetch("https://openlibrary.org/search.json?q=" + document.getElementById("input").value)
