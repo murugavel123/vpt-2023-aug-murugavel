@@ -25,9 +25,7 @@
 }
 
 
-.box:hover .text{
-    display: none;
-}
+
 .box input{
     background: transparent;
     border: none;
@@ -35,7 +33,7 @@
     width: 475px;
     font-weight: 500;
     font-size: 16px;
-    transition: 0.8s;
+    
 }
 .box i .fas{
     color: blue;
