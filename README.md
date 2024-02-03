@@ -91,4 +91,3 @@ The Book Library App is a web-based application that allows users to browse and 
 - Sorting options for book listing
 - Responsive design for mobile devices
 
-Remember that this documentation is a starting point, and you can expand upon it to provide more details, add screenshots, and elaborate on specific functionalities as needed for your app.
